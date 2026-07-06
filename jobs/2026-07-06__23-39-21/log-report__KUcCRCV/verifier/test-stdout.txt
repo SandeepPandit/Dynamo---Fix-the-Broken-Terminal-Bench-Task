@@ -1,0 +1,62 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 3 items
+
+../tests/test_outputs.py FFF                                             [100%]
+
+=================================== FAILURES ===================================
+_____________________________ test_total_requests ______________________________
+
+    def test_total_requests():
+        """Success criterion 1: report contains the correct total_requests."""
+>       assert report()["total_requests"] == expected()["total_requests"]
+               ^^^^^^^^
+
+/tests/test_outputs.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def report():
+>       with open("/app/report.json") as f:
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'
+
+/tests/test_outputs.py:35: FileNotFoundError
+_______________________________ test_unique_ips ________________________________
+
+    def test_unique_ips():
+        """Success criterion 2: report contains the correct unique_ips."""
+>       assert report()["unique_ips"] == expected()["unique_ips"]
+               ^^^^^^^^
+
+/tests/test_outputs.py:46: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def report():
+>       with open("/app/report.json") as f:
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'
+
+/tests/test_outputs.py:35: FileNotFoundError
+________________________________ test_top_path _________________________________
+
+    def test_top_path():
+        """Success criterion 3: report contains the correct top_path."""
+>       assert report()["top_path"] == expected()["top_path"]
+               ^^^^^^^^
+
+/tests/test_outputs.py:51: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def report():
+>       with open("/app/report.json") as f:
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'
+
+/tests/test_outputs.py:35: FileNotFoundError
+=========================== short test summary info ============================
+FAILED ../tests/test_outputs.py::test_total_requests - FileNotFoundError: [Er...
+FAILED ../tests/test_outputs.py::test_unique_ips - FileNotFoundError: [Errno ...
+FAILED ../tests/test_outputs.py::test_top_path - FileNotFoundError: [Errno 2]...
+============================== 3 failed in 0.01s ===============================
